@@ -55,9 +55,6 @@ get '/style.css' do
 end
 
 post '/disconnect' do
-  unless client_connected
-    return 'Client not connected'
-  end
   client_connected = false
   client.disconnect
   'OK'

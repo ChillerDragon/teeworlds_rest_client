@@ -106,10 +106,10 @@ end
 
 get '/debug' do
   state = {
-    inp_left_ticks:
-    inp_right_ticks:
-    inp_jump_ticks:
-    inp_hook_ticks:
+    inp_left_ticks:,
+    inp_right_ticks:,
+    inp_jump_ticks:,
+    inp_hook_ticks:,
     inp_fire_ticks:
   }
   state.to_json

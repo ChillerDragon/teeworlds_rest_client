@@ -6,6 +6,9 @@ GEM
       rice (~> 4.0.4)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.9)
+    puma (6.3.1)
+      nio4r (~> 2.0)
     rack (2.2.8)
     rack-protection (3.1.0)
       rack (~> 2.2, >= 2.2.4)
@@ -29,7 +32,7 @@ GEM
       rack (~> 2.2, >= 2.2.4)
       rack-protection (= 3.1.0)
       tilt (~> 2.0)
-    teeworlds_network (0.0.3)
+    teeworlds_network (0.0.6)
       huffman_tw (~> 0.0.1)
       rspec (~> 3.9.0)
     tilt (2.3.0)
@@ -38,6 +41,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  puma
   sinatra
   teeworlds_network
 

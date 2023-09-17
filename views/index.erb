@@ -12,6 +12,10 @@
         <code>
             curl -X POST <%= @hostname %>/connect -F host=localhost -F port=8303
             curl -X POST <%= @hostname %>/left -F ticks=200
+            curl -X POST <%= @hostname %>/fire -F ticks=100
+            curl -X POST <%= @hostname %>/hook -F ticks=100
+            curl -X POST <%= @hostname %>/aim -F x=100 -F y=100
+            curl -X POST <%= @hostname %>/weapon -F weapon=1
             curl -X POST <%= @hostname %>/disconnect
             curl -X POST <%= @hostname %>/messages -F message='hello world'
             curl <%= @hostname %>/messages

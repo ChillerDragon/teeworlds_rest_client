@@ -9,6 +9,9 @@ messages = []
 inp_left_ticks = 0
 inp_right_ticks = 0
 inp_jump_ticks = 0
+inp_aim_x = 10
+inp_aim_y = 10
+inp_weapon = 0
 client_connected = false
 client.set_startinfo(
   name: 'zillyhuhn.com',
@@ -52,6 +55,8 @@ client.on_tick do
   send_inp = false
   dir = 0
   jmp = 0
+  hook = 0
+  fire = 0
   inp_left_ticks -= 1
   inp_right_ticks -= 1
   inp_jump_ticks -= 1
@@ -71,18 +76,26 @@ client.on_tick do
     send_inp = true
     jmp = 1
   end
+  if inp_hook_ticks.positive?
+    send_inp = true
+    hook = 1
+  end
+  if inp_fire_ticks.positive?
+    send_inp = true
+    fire = 1
+  end
   # puts send_inp
   # next unless send_inp
 
   client.send_input(
         direction: dir,
-        target_x: 10,
-        target_y: 10,
+        target_x: inp_aim_x,
+        target_y: inp_aim_y,
         jump: jmp,
-        fire: 0,
-        hook: 0,
+        fire: fire,
+        hook: hook,
         player_flags: 0,
-        wanted_weapon: 0,
+        wanted_weapon: inp_weapon,
         next_weapon: 0,
         prev_weapon: 0)
 end
@@ -132,6 +145,36 @@ post '/right' do
   ticks = params[:ticks] || 0
   ticks = ticks.to_i
   inp_right_ticks = ticks
+  'OK'
+end
+
+post '/hook' do
+  ticks = params[:ticks] || 0
+  ticks = ticks.to_i
+  inp_hook_ticks = ticks
+  'OK'
+end
+
+post '/fire' do
+  ticks = params[:ticks] || 0
+  ticks = ticks.to_i
+  inp_fire_ticks = ticks
+  'OK'
+end
+
+post '/weapon' do
+  weapon = params[:weapon] || 0
+  inp_weapon = weapon.to_i
+  'OK'
+end
+
+post '/aim' do
+  x = params[:x] || 0
+  x = x.to_i
+  y = params[:y] || 0
+  y = y.to_i
+  inp_aim_x = x
+  inp_aim_y = y
   'OK'
 end
 

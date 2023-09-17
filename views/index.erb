@@ -11,6 +11,7 @@
     <pre class="code-snippet">
         <code>
             curl -X POST <%= @hostname %>/connect -F host=localhost -F port=8303
+            curl -X POST <%= @hostname %>/disconnect
             curl -X POST <%= @hostname %>/messages -F message='hello world'
             curl <%= @hostname %>/messages
         </code>

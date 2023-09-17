@@ -14,7 +14,9 @@ client.on_disconnect do
 end
 
 client.on_chat do |_, msg|
-  messages << {author: msg.author.name, message: msg.message}
+  author = ''
+  author = msg.author.name if msg.author
+  messages << {author:, message: msg.message}
 end
 
 get '/' do

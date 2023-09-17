@@ -62,6 +62,8 @@ client.on_tick do
   inp_left_ticks -= 1
   inp_right_ticks -= 1
   inp_jump_ticks -= 1
+  inp_hook_ticks = -1
+  inp_fire_ticks = -1
   if inp_left_ticks == -1 || inp_right_ticks == -1 || inp_jump_ticks == -1
     # send that we stopped moving
     send_inp = true

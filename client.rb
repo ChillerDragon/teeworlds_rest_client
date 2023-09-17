@@ -4,6 +4,29 @@ require 'teeworlds_network'
 messages = []
 client = TeeworldsClient.new(verbose: false)
 client_connected = false
+client.set_startinfo(
+  name: 'tw-api.',
+  clan: 'zillyhuhn.com',
+  country: -1,
+  body: 'spiky',
+  marking: 'duodonny',
+  decoration: '',
+  hands: 'standard',
+  feet: 'standard',
+  eyes: 'standard',
+  custom_color_body: 0,
+  custom_color_marking: 0,
+  custom_color_decoration: 0,
+  custom_color_hands: 0,
+  custom_color_feet: 0,
+  custom_color_eyes: 0,
+  color_body: 0,
+  color_marking: 0,
+  color_decoration: 0,
+  color_hands: 0,
+  color_feet: 0,
+  color_eyes: 0
+)
 
 client.on_connected do
   client_connected = true

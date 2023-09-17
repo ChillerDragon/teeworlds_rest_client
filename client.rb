@@ -5,8 +5,8 @@ messages = []
 client = TeeworldsClient.new(verbose: false)
 client_connected = false
 client.set_startinfo(
-  name: 'tw-api.',
-  clan: 'zillyhuhn.com',
+  name: 'zillyhuhn.com',
+  clan: 'tw-api',
   country: -1,
   body: 'spiky',
   marking: 'duodonny',

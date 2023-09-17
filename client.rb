@@ -104,6 +104,17 @@ client.on_tick do
         prev_weapon: 0)
 end
 
+get '/debug' do
+  state = {
+    inp_left_ticks:
+    inp_right_ticks:
+    inp_jump_ticks:
+    inp_hook_ticks:
+    inp_fire_ticks:
+  }
+  state.to_json
+end
+
 get '/' do
   @hostname = ENV['HOSTNAME'] || 'http://localhost:4567'
   erb :index
@@ -135,7 +146,6 @@ post '/jump' do
   ticks = ticks.to_i
   inp_jump_ticks = ticks
   'OK'
-
 end
 
 post '/left' do

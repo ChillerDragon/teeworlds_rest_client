@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teeworlds rest api</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>teeworlds rest api</h1>
+    <pre class="code-snippet">
+        <code>
+            curl -X POST <%= @hostname %>/connect -F host=localhost -F port=8303
+            curl -X POST <%= @hostname %>/messages -F message='hello world'
+            curl <%= @hostname %>/messages
+        </code>
+    </pre>
+</body>
+</html>

@@ -17,6 +17,15 @@ client.on_chat do |_, msg|
   messages << {author: msg.author.name, message: msg.message}
 end
 
+get '/' do
+  @hostname = ENV['HOSTNAME'] || 'http://localhost:4567'
+  erb :index
+end
+
+get '/style.css' do
+  send_file File.expand_path('style.css', settings.public)
+end
+
 post '/disconnect' do
   unless client_connected
     return 'Client not connected'

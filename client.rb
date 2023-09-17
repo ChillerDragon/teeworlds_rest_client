@@ -64,11 +64,12 @@ post '/disconnect' do
 end
 
 post '/connect' do
+  host = params[:host] || 'localhost'
+  port = params[:port] || 8303
+  puts "host='#{host}' port='#{port}'"
   if client_connected
     return 'Already connected'
   end
-  host = params[:host] || 'localhost'
-  port = params[:port] || 8303
   client.connect(host, port.to_i, detach: true)
   'OK'
 end
@@ -83,6 +84,7 @@ post '/messages' do
   if msg.nil? || msg.empty?
     return 'Missing parameter message'
   end
+  puts "msg=#{msg}"
   unless client_connected
     return 'Client is not connected'
   end

@@ -1,8 +1,11 @@
-require 'sinatra'
 require 'teeworlds_network'
 
-messages = []
 client = TeeworldsClient.new(verbose: false)
+at_exit { client.disconnect }
+
+require 'sinatra'
+
+messages = []
 client_connected = false
 client.set_startinfo(
   name: 'zillyhuhn.com',

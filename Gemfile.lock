@@ -1,0 +1,45 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    diff-lcs (1.5.0)
+    huffman_tw (0.0.1)
+      rice (~> 4.0.4)
+    mustermann (3.0.0)
+      ruby2_keywords (~> 0.0.1)
+    rack (2.2.8)
+    rack-protection (3.1.0)
+      rack (~> 2.2, >= 2.2.4)
+    rice (4.0.4)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.3)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.4)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.4)
+    ruby2_keywords (0.0.5)
+    sinatra (3.1.0)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.1.0)
+      tilt (~> 2.0)
+    teeworlds_network (0.0.2)
+      huffman_tw (~> 0.0.1)
+      rspec (~> 3.9.0)
+    tilt (2.3.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  sinatra
+  teeworlds_network
+
+BUNDLED WITH
+   2.4.18

@@ -3,6 +3,8 @@ require 'teeworlds_network'
 client = TeeworldsClient.new(verbose: false)
 at_exit { client.disconnect }
 
+require_relative 'src/host'
+
 require 'sinatra'
 
 messages = []
@@ -134,6 +136,9 @@ post '/connect' do
   host = params[:host] || 'localhost'
   port = params[:port] || 8303
   puts "host='#{host}' port='#{port}'"
+  unless is_valid_host?(host)
+    return 'Invalid host'
+  end
   if client_connected
     return 'Already connected'
   end

@@ -11,6 +11,10 @@ def is_valid_host?(host)
   unless disallow_regex.nil?
     return false if host.match(disallow_regex)
   end
+  # TODO: caching
+  servers = JSON.parse(URI.open("https://master1.ddnet.org/ddnet/15/servers.json").read)
+  in_master = servers["servers"].map {|s| s["addresses"] }.to_s.include? host
+  return false unless in_master
 
   block = /\d{,2}|1\d{2}|2[0-4]\d|25[0-5]/
   ipv4_regex = /\A#{block}\.#{block}\.#{block}\.#{block}\z/

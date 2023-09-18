@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 def is_valid_host?(host)
   return false if host.nil?
   return false if host.empty?
